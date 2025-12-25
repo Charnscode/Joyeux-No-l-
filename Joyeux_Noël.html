@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyeux Noël</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1a472a 0%, #0d2818 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px;
+            color: white;
+            font-size: 1em;
+            opacity: 0.8;
+            animation: fall linear infinite;
+            user-select: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 60px 40px;
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            max-width: 600px;
+            animation: fadeIn 1s ease-in;
+            z-index: 1;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 3.5em;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 2px 2px 10px rgba(255, 215, 0, 0.5),
+                             0 0 20px rgba(255, 215, 0, 0.3);
+            }
+            50% {
+                text-shadow: 2px 2px 20px rgba(255, 215, 0, 0.8),
+                             0 0 40px rgba(255, 215, 0, 0.5);
+            }
+        }
+
+        .tree {
+            font-size: 6em;
+            margin: 20px 0;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        p {
+            font-size: 1.3em;
+            color: #f0f0f0;
+            line-height: 1.8;
+            margin-top: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .decorations {
+            margin-top: 30px;
+            font-size: 2em;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎄 Charno vous souhaite Joyeux Noël ! 🎄</h1>
+        <div class="tree">🎄</div>
+        <p>Que cette période des fêtes vous apporte joie, amour et bonheur.</p>
+        <p>Passez de merveilleuses fêtes entouré de ceux que vous aimez !</p>
+        <div class="decorations">⭐ 🎁 ❄️ 🔔 ✨</div>
+    </div>
+
+    <script>
+        // Créer des flocons de neige
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.textContent = '❄';
+            snowflake.style.left = Math.random() * 100 + '%';
+            snowflake.style.animationDuration = Math.random() * 3 + 5 + 's';
+            snowflake.style.fontSize = Math.random() * 1 + 0.5 + 'em';
+            snowflake.style.opacity = Math.random() * 0.6 + 0.4;
+            document.body.appendChild(snowflake);
+
+            setTimeout(() => {
+                snowflake.remove();
+            }, 8000);
+        }
+
+        // Générer des flocons régulièrement
+        setInterval(createSnowflake, 200);
+    </script>
+</body>
+</html>
